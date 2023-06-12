@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript" src="../Router/router.js"></script>
+  <link rel="stylesheet" href="../CSS/board.css" type="text/css">
+  <link rel="stylesheet" href="../CSS/intro.css" type="text/css">
+  <link rel="stylesheet" href="../CSS/style.css" type="text/css">
+  <link rel="stylesheet" href="../src/pages/Header/Header.css" type="text/css">
+</head>
+  <header>
+    <!-- Head -->
+    <div class="main_top" style="display: flex !important;"> <!-- display : flex 가 어떤 뜻이야?  -->
+      <a href="" data-navigate="/" id="home_title"><h1>Home</h1></a> 
+      <nav>
+        <a href="" data-navigate="/vIntro" class="nav_bar"><h1>조원 소개</h1></a>
+        <a href="" data-navigate="/vNihon" class="nav_bar"><h1>현지학기제</h1></a>
+        <a href="" data-navigate="/Board" class="nav_bar"><strong>게시판</strong></a>
+        <a href="" data-navigate="/404" class="nav_bar"><h1>준비중....</h1></a>
+      </nav>
+  </header>
+  <main></main>
+  <script type="module">
+    import createPages from "../src/pages/index.js";
+
+    const pages = createPages(document.querySelector("main"));
+    const router = createRouter();
+    router
+      .addRoute("/", pages.vIntro)
+      .addRoute("/vIntro", pages.vIntro)
+      .addRoute("/vNihon", pages.vNihon)
+      .addRoute("/Board", pages.Board)
+      .addRoute("/viewContent", pages.viewContent)
+      .setNotFound(pages.notFound)
+      .start();
+  </script>
+</body>
+</html>
